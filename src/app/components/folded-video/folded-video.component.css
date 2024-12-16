@@ -1,0 +1,24 @@
+.image-container{
+    position: relative;
+    left: 0;
+    top:0;
+    width: 530px;
+    height: 700px;
+    align-items: center;
+
+        img{
+            position: absolute;
+            width: 100%;
+            height: auto;
+            opacity: .9;
+        }
+
+        .body{
+            z-index: 0;
+            
+        }
+
+        .eye , .mouth, .brows{
+            z-index: 2;
+        }
+}

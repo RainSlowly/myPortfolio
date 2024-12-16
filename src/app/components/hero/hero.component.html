@@ -1,0 +1,91 @@
+<div class="hero-content">
+    <div class="pin">
+        <div class="shadow"></div>
+        <div class="metal"></div>
+        <div class="bottom-circle"></div>
+    </div>
+    <div class="pin2">
+        <div class="shadow"></div>
+        <div class="metal"></div>
+        <div class="bottom-circle"></div>
+      </div>
+    <div class="info-content">
+        <h2 class="role">Front  end Developer</h2>
+        <h1 class="title" [innerHTML]="language.heroTitle"></h1>
+        <p class="description"[innerHTML]="language.heroDescription"></p>
+        <button class="cta"> <b>Hire Me</b> </button>
+        <a class="go-to-proj"><b> Projects <i class="fa-solid fa-arrow-up-long"></i></b></a>
+        <div class="contact-container">
+         <h3 [innerHTML]="language.heroContacts"></h3>
+         <p class="mail">simone.zavaglia93&#64;gmail.com <br><span> +39 377 082 5242</span></p>
+        </div>    
+        <div class="ability-container">
+            <ul class="ability-list">
+                <h3>Skills</h3>
+                <li> Html 5 / Css </li>
+                <li> Javascript / Typescript </li>
+                <li> Angular CLI</li>
+                <li [innerHTML]="language.heroAbility1"> API e Librerie</li>
+                <li [innerHTML]="language.heroAbility2"> Database non-relazionali</li>
+            </ul>
+        </div>
+        <div class="counters-background">
+        </div>
+        <a class="reroll" (click)="rerollCounters()"><i class="fa-solid fa-rotate-left"></i></a>
+        <div class="counters-container">
+            <div class="progress" *ngFor="let counter of selectedCounters" [ngStyle]="{'--i':counter.value,'--clr':counter.color}">
+                <h3>{{counter.number}}</h3>
+                <h4>{{counter.name}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="image-content">
+        <p class="image-description" [innerHTML]="language.heroImgDescription"></p>
+        <img class="my-photo" src="https://static.vecteezy.com/system/resources/thumbnails/046/464/329/small_2x/smiling-man-holding-and-pointing-at-laptop-on-transparent-background-png.png">
+            <div class="logos" [class.logos-animate]="activeAnimations['angular']" (click)="animateLogo('angular')" id="angular">
+                <img class="icon" src="assets/images/angular_gradient.png">
+            </div>
+            <div class="logos" [class.logos-animate]="activeAnimations['js']" (click)="animateLogo('js')" id="js">
+                <img class="icon" src="assets/images/Js-logo.png">
+            </div>
+            <div class="logos" [class.logos-animate]="activeAnimations['node']" (click)="animateLogo('node')"id="node">
+                <img class="icon"  src="assets/images/nodejsStackedDark.png">
+            </div>
+            <div class="logos"[class.logos-animate]="activeAnimations['ts']" (click)="animateLogo('ts')" id="ts">
+                <img class="icon"  src="assets/images/ts-logo-round-512.png">
+            </div>
+            <div class="contact-me">
+                <p [innerHTML]="language.heroContactMe"></p>
+                <a><i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+    </div>
+      
+  <span class="folds main">
+    <span class="cell main-1"></span>
+    <span class="cell main-2"></span>
+    <span class="cell main-1"></span>
+    <span class="cell main-2"></span>
+    <span class="cell main-1"></span>
+  </span>
+  
+  <span class="folds vertical">
+    <span class="cell vertical-1"></span>
+    <span class="cell vertical-2"></span>
+    <span class="cell vertical-3"></span>
+    <span class="cell vertical-4"></span>
+    <span class="cell vertical-5"></span>
+  </span> 
+  
+  <span class="folds horizontal">
+    <span class="cell horizontal-1"></span>
+    <span class="cell horizontal-2"></span>
+    <span class="cell horizontal-1"></span>
+    <span class="cell horizontal-2"></span>
+    <span class="cell horizontal-1"></span>
+    <span class="cell horizontal-3"></span>
+    <span class="cell horizontal-4"></span>
+    <span class="cell horizontal-3"></span>
+    <span class="cell horizontal-4"></span>
+    <span class="cell horizontal-3"></span>
+  </span>
+</div>

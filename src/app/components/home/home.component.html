@@ -1,0 +1,300 @@
+<section id="hero">
+  <app-hero></app-hero>
+</section>
+
+<div class="language-content">
+  <div
+    class="flag-button"
+    [class.ita]="selectedLang === 'ITA'"
+    [class.eng]="selectedLang === 'ENG'"
+    (click)="changeLanguage(selectedLang === 'ITA' ? 'ENG' : 'ITA')">
+  </div>
+</div>
+
+<div class="navigation">
+    <ul>
+        <a (click)="scrollToSection('about-me')">
+            About me
+        </a>
+        <a (click)="scrollToSection('project-container')" [innerHTML]="language.navigation1">
+           
+        </a>
+        <a (click)="scrollToSection('resume')">
+          Resume
+      </a>
+        <a (click)="scrollToSection('contact-container')" [innerHTML]="language.navigation2">
+            
+        </a>
+        <a >
+            Versione più Seria
+        </a>
+    </ul>
+</div>
+
+<div class="avatar-content">
+    <div class="avatar">
+      <app-folded-video [ngClass]="{ 'fixed': fixAvatar }"></app-folded-video>
+    </div>
+    <div class="baloon" [ngClass]="{ 'fixedBaloon': fixAvatar }">
+      <p class="baloon-text"> Io sono come sonoIo sono come sonoIo sono come sonoIo sono come sonoIo sono come sonoIo sono come sono se sono e se faccio e se dico e se provo e se entra</p>
+      <img [src]="getBaloonSource()" class="baloon-image" >
+    </div>
+</div>
+
+
+<section id = "about-me">
+  <img class="stickerIo" src="assets/images/StickerIO.png">
+  <img class="paperclip" src="assets/images/paperclip.png">
+  <div class="polaroid">
+    <img src="assets/images/io.jpg">
+    <h2 [innerHTML]="language.aboutPolaroid"></h2>
+  </div>
+
+  <div class="paperAbout">
+
+      <h3 class="about-title">About Me</h3>
+      <p class="my-description" [innerHTML]="language.aboutDescription"> </p>
+         <img class="schizzo" src="assets/images/Schizzo.png">
+         <div class="post-it-container">
+      <div class="paper" @postItAnimation>
+         <img class="schizzo-rido" src="assets/images/SchizzoRido.png">
+          <div class="list-content">
+           <h3 [innerHTML]="language.aboutListLove"></h3>
+           <li [innerHTML]="language.aboutListLove1"></li>
+           <li [innerHTML]="language.aboutListLove2"></li>
+           <li [innerHTML]="language.aboutListLove3"></li>
+         </div>
+        </div>
+  </div>
+  <div class="post-it-container2">
+    <div class="paper" @postItAnimation>
+      <img class="schizzo-evil" src="assets/images/SchizzoEvil.png">
+        <div class="list-content">
+          <h3 [innerHTML]="language.aboutListHate"></h3>
+           <li [innerHTML]="language.aboutListHate1"></li>
+           <li [innerHTML]="language.aboutListHate2"></li>
+           <li [innerHTML]="language.aboutListHate3"></li>
+       </div>
+      </div>
+      
+</div>
+
+
+ 
+  </div>
+  <img class="macchia" src="assets/images/ombra.png">
+</section>
+
+<section id="project-container">
+  <div class="button-container">
+    <div class="pseudobutton" *ngFor="let button of projectButtons; let i=index "
+    [ngClass]="{ 'selected': selectedProj === i }"
+    (click)="changeProject(i)">
+      <img [src]="getImageSource(i)" class="button-image">
+      <p class="button-text">{{button.name}}</p>
+    </div>
+  </div>
+
+  
+    <div id="project1" *ngIf="selectedProj===0" [@projectAnimation]="animationStates[0]" >
+        <div class="tape-single" @tapeAnimation></div>
+        <div class="paperF pink" @paperFAnimation>
+            <div class="tape-section" @tapeAnimation></div>
+            <p>metti il video anteprima qui</p>
+            <div class="tape-section"@tapeAnimation></div>
+          </div>
+        
+        <div class="paperlined" @paperlinedAnimation>
+            <fieldset>
+              <h3>Browser game - Find it Genious!</h3>
+              <p class="proj-utilized" [innerHTML]="language.proj1Utilized" ></p>
+              <p class="proj-description"[innerHTML]="language.proj1Description"></p>
+            </fieldset>
+          </div>
+        <div class="post-it-container">
+            <div class="paper" @postItAnimation>
+                <div class="pin"@pinAnimation >
+                  <div class="shadow"></div>
+                  <div class="metal"></div>
+                  <div class="bottom-circle"></div>
+                </div>
+                <p>link per il sito</p>
+              </div>
+        </div>
+
+    </div>
+
+
+    <div id="project2" *ngIf="selectedProj===1"[@projectAnimation]="animationStates[1]">
+      <div class="tape-single" @tapeAnimation></div>
+      <div class="paperF yellow" @paperFAnimation2>
+        <div class="tape-section" @tapeAnimation></div>
+        <p>metti il video anteprima qui</p>
+        
+      </div>
+      <div class="pin"@pinAnimation >
+        <div class="shadow"></div>
+        <div class="metal"></div>
+        <div class="bottom-circle"></div>
+      </div>
+      <div class="pin"@pinAnimation >
+        <div class="shadow"></div>
+        <div class="metal"></div>
+        <div class="bottom-circle"></div>
+      </div>
+      <img class="sticker" src="assets/images/StickerFold.png"@tapeAnimation>
+      <img class="sticker-poke" src="assets/images/Sticker-pika.png" @tapeAnimation>
+      <div class="paper-poke" @paperPokeAnimation>
+          <h3>Browser game - Pokemon Browser Trainer</h3>
+          <p [innerHTML]="language.proj2Utilized"></p>
+          <p class="proj-description" [innerHTML]="language.proj2Description"></p>
+            <img class="scribble-poke" src="assets/images/Schizzopokeball.png">
+            <img class="scribble-cuore" src="assets/images/SchizzoCuore.png">
+      </div>
+      <div class="post-it-container" @postItAnimation2>
+        <div class="paper">
+            <p>link per il sito</p>
+          </div>
+    </div>
+    </div>
+
+
+    <div id="project3" *ngIf="selectedProj===2" [@projectAnimation]="animationStates[2]">
+        <div class="paperF blue" @paperFAnimation3>
+            <div class="top-tape" @tapeAnimation></div>
+            <p>metti il video anteprima qui</p>
+          </div>
+        <div class="paper-notepad" @paperNotedAnimation>
+        <h3 [innerHTML]="language.proj3Title"></h3>
+              <p [innerHTML]="language.proj3Utilized"></p>
+              <p class="proj-description" [innerHTML]="language.proj3Description"></p>
+        </div>
+        <div class="pin" @pinAnimation>
+            <div class="shadow"></div>
+            <div class="metal"></div>
+            <div class="bottom-circle"></div>
+          </div>
+       
+        <div class="segnapagina ombra" (click)="changeAlternative()" @segnaAnimation>
+          <p> Sito Personale</p>
+        </div>   
+        
+        <div class="alternative1" *ngIf="alternative===true" [@projectAltAnimation]="alternativeState">
+          <img class="sticker-bar" src="assets/images/StickerBar.png" @tapeAnimation>
+          <div class="segnapagina-container">
+              <div class="segnapagina2 ombra"  @segnaAnimation2>
+                <p> Sito Commerciale</p>
+              </div>   
+             </div> 
+          <div class="paperF2 green" @paperFAnimation4>
+                <div class="top-tapeG" @tapeAnimation2></div>
+                <p>metti il video anteprima qui</p>
+              </div>
+            <div class="paper-notepad2" @paperNotepadAltAnimation>
+            <h3 [innerHTML]="language.proj4Title">Sito commerciale - Ace of Cups</h3>
+                  <p [innerHTML]="language.proj4Utilized"><b>Fatto con:</b>Angular, Css</p>
+                  <p class="proj-description" [innerHTML]="language.proj4Description">In questo progetto ho creato una vetrina digitale per un cocktail bar dal carattere mistico, con un’esperienza altamente interattiva realizzata grazie ad animazioni fluide con <b>Angular Animations</b> e dati mockati per simulare un ambiente reale.<br> Il menù consente di visualizzare e gestire gli ordini in modo <b>chiaro</b> e <b>intuitivo</b>, collegandoli al proprio tavolo tramite un<br> <b>codice univoco</b> e monitorando in tempo reale la spesa complessiva.<br> La sezione shop integra funzionalità avanzate ispirate all’<b>e-commerce</b>, permettendo di scegliere,<br> modificare e acquistare merchandise ufficiale con un sistema di carrello versatile, che consente di<br> sfogliare, selezionare e modificare il contenuto prima dell'acquisto, il tutto per offrire un’esperienza utente innovativa e coinvolgente.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+  
+
+
+    <div id="project4">
+
+    </div>
+</section>
+
+<section id="resume">
+
+  <div class="paperlined" >
+    <div class="field1">
+      <div class="section-education">
+        <h2 class="resume-title" [innerHTML]="language.resumeEdu"></h2>
+        <h3 class="resume-subtitle" [innerHTML]="language.resumeEdu2"></h3>
+      </div>
+      <div class="section-language">
+        <h2 class="resume-title"[innerHTML]="language.resumeLang"></h2>
+        <h3 class="resume-subtitle" [innerHTML]="language.resumeLang2"></h3>
+      </div>
+      <div class="section-skills">
+        <h2 class="resume-title">Skills</h2>
+        <h3 class="resume-subtitle"></h3>
+        <ul class="resume-description"> 
+          <li><b>Coding</b><br>(Js, Angular, Node.js)</li>
+          <li ><b>Web Design - Ui/Ux</b> <br>(Html5, css, Adobe Ps)</li>
+          <li ><b>Database</b> <br>(MongoDB, MySQL)</li>
+          <li ><b>Graphic Design</b><br>(Adobe Ps/Adobe Pr)</li>
+          <li ><b>Version Control</b><br> (Git)</li>
+        </ul>
+      </div>
+      <div class="section-softskills">
+        <h2 class="resume-title">Soft-skills</h2>
+        <h3 class="resume-subtitle"></h3>
+        <ul class="resume-description">
+          <li >Apprendimento rapido</li> 
+          <li >Multipotenziale</li>
+          <li >Lavoro di Squadra</li>
+          <li >Team Building</li>
+          <li >Creatività</li>
+          <li >Performante sotto stress</li>
+          <li> Amichevole</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="paperlined2" >
+    <div class="field2">
+      <div class="tape-section"></div>
+      <div class="lavoro-container">
+      <div class="lavoro left">
+        <h2>Commesso</h2>
+        <h3> sep2020-nov2024</h3>
+        <p>Cartolibreria L'apostrofo</p>
+      </div>
+      <div class="lavoro right">
+        <h2>AgenteSegreto</h2>
+        <h3> Data in piccolo</h3>
+        <p> Presso:</p>
+      </div>
+      <div class="lavoro left">
+        <h2>Terapista</h2>
+        <h3> Data in piccolo</h3>
+        <p> Presso:</p>
+      </div>
+      <div class="lavoro right">
+        <h2>Streamer</h2>
+        <h3> Data in piccolo</h3>
+        <p> Presso:</p>
+      </div>
+    </div>
+      <div class="timeline">
+        <img src="assets/images/timeline.png">
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+  <section id="contact-container">
+    <div class="paper-principale">
+      <h1>Simone Zavaglia </h1>
+      <h2> Opinionista, designer, video-maker, scrittore, gamedev, critico, attore, cabarettista, illusionista, terapista.</h2>
+      <p> Offre le sue elevate capacità al servizio della comuità. <br> Per info o offerte lavorative si possono utilizzare i contatti qui di seguito. <br> Forza! Prendi un bigliettino! <br></p>
+    </div>
+    <div class="tag-container">
+      <div class="paper-tag"></div>
+      <div class="paper-tag"></div>
+      <div class="paper-tag"></div>
+      <div class="paper-tag"></div>
+      <div class="paper-tag"></div>
+    </div>
+    <div class="paper-tag2"></div>
+    <div class="paper-tag3"></div>
+    <div class="paper-tag4"></div>
+    <div class="paper-tag5"></div>
+  </section>
