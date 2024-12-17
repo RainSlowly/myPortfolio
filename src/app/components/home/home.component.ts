@@ -50,8 +50,25 @@ resumeLang2: " ", resumeSkill1: " ", resumeSkill2: " ", resumeSkill3: " ",
 resumeSkill4: " ", resumeSkill5: " ", resumeSkill6: " ", resumeSkill7: " ",
 jobTitle1: " ", jobPlace1: " "};
 
-
-
+selectedPhrase:string="";
+key: keyof typeof this.avatarLanguage = "aboutLocked";
+preAvatarLang:any;
+avatarLanguage={   
+  aboutLocked:"Ciao sono <b>Simone</b>, questo è il mio sito portfolio.<br> Sarò la tua guida qui dentro.<br> Puoi navigare su questa versione o su quella più seria, se preferisci.",
+  aboutMoving:"E' mio dovere seguirti in questa navigazione. Altrimenti che guida sarei?",
+  heroReturn:"Uff! Stavo soffocando là sotto!",
+  project1:"La parte più complicata è stata la gestione di ogni singolo livello. Se vuoi, puoi provare il gioco su itch.io. Funziona tutto, fino alla fine… Credo.",
+  project2:"Tutti i programmatori, prima o poi, hanno avuto a che fare coi Pokémon. Ammettiamolo dai.",
+  project3:"Sapete cosa dovremmo fare? APRIRE UN BAR! Questa era una cit. ad How i Met Your- lascia perdere… Non dovevo distrarti.",
+  project4:"Fare un sito per un parente è come correre con le forbici in mano e i lacci slacciati.",
+  resume1: "In ambienti diversi ho imparato una miriade di cose diverse. So lavorare a contatto con la gente e dietro le quinte, da solo e in gruppo e ho ottime doti comunicative.",
+  resume2: "I lavori che ho fatto non c'entrano nulla con la programmazione, lo so. Ma cosa non si fa per campare eh?",
+  contacts:"Spero che la mia personalità e le mie capacità ti abbiano almeno incuriosito. Se vuoi sapere di più o vuoi contattarmi, beh… Sai già cosa fare!",
+  hidle1:"Sei ancora li? Ti sei alzato a prendere un caffè?<br>Sbrighiamoci però, tra un paio d’ore devo fare l’avatar digitale su un’app di trading.",
+  hidle2:"E' imbarazzante stare qui fermo a non fare nulla...",
+  return1:"Ma si guardiamo un'altra volta questa parte!",
+  return2:"Non l'avevamo già visto questo?",
+  return3:"Questa sezione non è niente male lo so."}
 
 
   constructor(private animationService: AvatarAnimationsService,
@@ -66,6 +83,7 @@ jobTitle1: " ", jobPlace1: " "};
       }else{
       this.selectedLang=lang;
       this.languageService.changeLanguage(lang);
+      this.selectedPhrase=this.avatarLanguage[this.key];
       }
     }
 
@@ -89,11 +107,17 @@ jobTitle1: " ", jobPlace1: " "};
 
     // Aggiungi la classe quando si supera la sezione di 50px
     if (sectionTop <= -50 && !this.isTriggered) {
+      console.log(this.avatarLanguage)
+      this.key="aboutMoving"
+      this.selectedPhrase=this.avatarLanguage[this.key];
       this.fixAvatar = true;
       this.isTriggered = true;
       this.animationService.startAnimation();
       this.removeScrollListener(); // Disabilita il listener dopo il primo trigger
     } if (projectSectionTop <=300 && !this.projTriggered ) {
+      console.log(this.avatarLanguage)
+      this.key="project1"
+      this.selectedPhrase=this.avatarLanguage[this.key];
       this.selectedProj=0;
       this.animationStates[0] = 'visible';
       this.projTriggered=true;
@@ -163,11 +187,17 @@ getBaloonSource(){
   ngOnInit(): void {
     if(this.isPlatFormBrowser===true){
     this.addScrollListener();
+    console.log(this.avatarLanguage)
     window.setTimeout(() => {
     this.onScroll()
     this.languageService.selectedLanguage$.subscribe((lang) => {
       this.prelang = lang; // Lingua non sanificata
       this.language = this.languageService.sanitizeLanguage(lang);
+    });
+    this.languageService.selectedLanguageAvatar$.subscribe((avatarLang) => {
+      this.preAvatarLang = avatarLang 
+      this.avatarLanguage = this.languageService.sanitizeLanguage(avatarLang) // Avatar sanitizzato
+      this.selectedPhrase = this.avatarLanguage[this.key];
     });
     },0);
   }

@@ -36,7 +36,7 @@
       <app-folded-video [ngClass]="{ 'fixed': fixAvatar }"></app-folded-video>
     </div>
     <div class="baloon" [ngClass]="{ 'fixedBaloon': fixAvatar }">
-      <p class="baloon-text"> Io sono come sonoIo sono come sonoIo sono come sonoIo sono come sonoIo sono come sonoIo sono come sono se sono e se faccio e se dico e se provo e se entra</p>
+      <p class="baloon-text" [innerHTML]="selectedPhrase"></p>
       <img [src]="getBaloonSource()" class="baloon-image" >
     </div>
 </div>

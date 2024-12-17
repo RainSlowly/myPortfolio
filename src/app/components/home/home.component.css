@@ -92,7 +92,7 @@ app-folded-video{
   position: absolute;
   width: 350px;
   height: auto;
-  top: 1110px;
+  top: 1150px;
   left:83%;
   z-index: 6;
 
@@ -107,18 +107,21 @@ z-index: 6;
 
 .baloon-text{
   position: absolute;
-  top: 24px;
-  left: 40px;
+  top: 32px;
+  left: 25px;
   width: 270px;
   padding-left: 2px;
-  font:19px 'Shadows Into Light', cursive;
-  letter-spacing: 1px;
+  text-align: center;
+  font:20px 'Shadows Into Light', cursive;
+  letter-spacing: 0px;
+  line-height: 1.2;
 transform: rotate(-4deg);
+z-index: 7;
 }
 
 .fixedBaloon{
   position: fixed;
-  top: 14.3vh;
+  top: 18.1vh;
   left:83%;
   z-index: 6;
   
