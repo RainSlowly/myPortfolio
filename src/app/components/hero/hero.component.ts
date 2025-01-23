@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit,Input } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { LanguageService } from '../../services/language.service';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent implements OnInit, OnDestroy{
+@Input() scrolla!:(arg: string) => void
 
 allCounters=[
   {name:"progetti svolti", number:7,value: 74, color:"#ffe047" },
@@ -37,6 +38,11 @@ activeAnimations: { [key: string]: boolean } = {
 
 constructor(private languageService:LanguageService){}
 
+scrollToContacts(arg:string){
+  if(this.scrolla){
+    this.scrolla(arg)
+  }
+}
 
 ngOnInit(): void {
  this.rerollCounters();

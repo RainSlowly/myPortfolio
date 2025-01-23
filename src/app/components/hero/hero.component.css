@@ -13,6 +13,7 @@
         width: 54%;
         height: 100%;
         background-color: rgb(255, 255, 255);
+        z-index: 10;   
 
             .role{
                 position: absolute;
@@ -60,21 +61,34 @@
                 letter-spacing: 1px;
                 text-align: center;
                 border: none;
-                background-color: rgba(84,98,255,255);              
+                background-color: rgba(84,98,255,1);    
+                cursor: pointer;   
+                
             }
             
-            a{
+            .cta:hover{
+              transform: scale(1.07);
+              color: rgb(247, 239, 126);
+              background-color: rgb(61, 77, 253);    
+            }
+
+            .go-to-proj{
                 position: relative;
                 width: 200px;
                 left: 18%;
                 font-style:italic;
                 font-size: 1rem;
                 letter-spacing: 1px;
+                cursor: pointer;
                     
                 i{
                     transform: rotate(45deg);
                     margin-left: 4px;
                 }
+            }
+
+            .go-to-proj:hover{
+              transform: rotate(45deg),scale(1.2);
             }
 
             .contact-container{
@@ -90,13 +104,13 @@
                 .mail{
                     position: relative;
                     left: 1px;
-                    top: -18px;
+                    top: -17px;
                     font-size: 0.9rem;
 
                     span{
                         position: relative;
                         font-size: 1rem;
-                        top:7px;
+                        top:4px;
                     }
                 }
             }
@@ -335,6 +349,7 @@
     z-index: 1;
     left: 27%;
     top: 90%;
+    cursor: pointer;
     background-color: rgb(255, 255, 255);
 
     p{
@@ -589,7 +604,7 @@ span.folds {
     left: 50px;
     width: 60px;
     height: 50px;
-    z-index: 4;
+    z-index: 14;
     filter: drop-shadow(-11px 8px 6px rgba(99, 99, 99, 0.589));
     
   }

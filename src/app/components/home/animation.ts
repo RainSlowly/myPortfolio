@@ -65,6 +65,32 @@ export const  postItAnimation= trigger('postItAnimation', [
   ])
 ]);
 
+export const  postItAnimationAbout= trigger('postItAnimationA', [
+  transition(':enter', [
+    group([
+      style({ transform: 'translate(150%,-150%) scale(1.3) rotate(2deg)', opacity: 0 }),
+      animate('400ms 120ms ease-out', style({ transform: 'translate(0,0) scale(1) rotate(2deg)', opacity: 1 })),
+      query('@pinAnimation', animateChild(), { optional: true }) 
+    ])
+  ]),
+  transition(':leave', [
+    animate('300ms ease-in', style({ transform: 'translateY(50%)', opacity: 0 }))
+  ])
+]);
+
+export const  postItAnimationAbout2= trigger('postItAnimationA2', [
+  transition(':enter', [
+    group([
+      style({ transform: 'translate(150%,-150%) scale(1.3) rotate(-1deg)', opacity: 0 }),
+      animate('400ms 120ms ease-out', style({ transform: 'translate(0,0) scale(1) rotate(1-1deg)', opacity: 1 })),
+      query('@pinAnimation', animateChild(), { optional: true }) 
+    ])
+  ]),
+  transition(':leave', [
+    animate('300ms ease-in', style({ transform: 'translateY(50%)', opacity: 0 }))
+  ])
+]);
+
 export const  pinAnimation= trigger('pinAnimation', [
   transition(':enter', [
     style({ transform: 'translate(140%,-90%) scale(1.5)', opacity: 0 }),

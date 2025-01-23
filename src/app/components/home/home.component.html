@@ -1,5 +1,5 @@
 <section id="hero">
-  <app-hero></app-hero>
+  <app-hero [scrolla]="scrollToSection"></app-hero>
 </section>
 
 <div class="language-content">
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="navigation">
+<div id="navigation">
     <ul>
         <a (click)="scrollToSection('about-me')">
             About me
@@ -56,7 +56,7 @@
       <p class="my-description" [innerHTML]="language.aboutDescription"> </p>
          <img class="schizzo" src="assets/images/Schizzo.png">
          <div class="post-it-container">
-      <div class="paper" @postItAnimation>
+      <div class="paper" @postItAnimationA>
          <img class="schizzo-rido" src="assets/images/SchizzoRido.png">
           <div class="list-content">
            <h3 [innerHTML]="language.aboutListLove"></h3>
@@ -67,7 +67,7 @@
         </div>
   </div>
   <div class="post-it-container2">
-    <div class="paper" @postItAnimation>
+    <div class="paper" @postItAnimationA2>
       <img class="schizzo-evil" src="assets/images/SchizzoEvil.png">
         <div class="list-content">
           <h3 [innerHTML]="language.aboutListHate"></h3>
@@ -97,13 +97,14 @@
 
   
     <div id="project1" *ngIf="selectedProj===0" [@projectAnimation]="animationStates[0]" >
+      
         <div class="tape-single" @tapeAnimation></div>
         <div class="paperF pink" @paperFAnimation>
             <div class="tape-section" @tapeAnimation></div>
             <p>metti il video anteprima qui</p>
             <div class="tape-section"@tapeAnimation></div>
           </div>
-        
+          <img class="sticker-zwei" src="assets/images/Sticker-zwei.png" @tapeAnimation>
         <div class="paperlined" @paperlinedAnimation>
             <fieldset>
               <h3>Browser game - Find it Genious!</h3>
@@ -118,7 +119,7 @@
                   <div class="metal"></div>
                   <div class="bottom-circle"></div>
                 </div>
-                <p>link per il sito</p>
+                <a>Il link per giocarlo</a>
               </div>
         </div>
 
@@ -176,14 +177,14 @@
           </div>
        
         <div class="segnapagina ombra" (click)="changeAlternative()" @segnaAnimation>
-          <p> Sito Personale</p>
+          <p> Personal site</p>
         </div>   
         
         <div class="alternative1" *ngIf="alternative===true" [@projectAltAnimation]="alternativeState">
           <img class="sticker-bar" src="assets/images/StickerBar.png" @tapeAnimation>
           <div class="segnapagina-container">
               <div class="segnapagina2 ombra"  @segnaAnimation2>
-                <p> Sito Commerciale</p>
+                <p>Commercial site</p>
               </div>   
              </div> 
           <div class="paperF2 green" @paperFAnimation4>
@@ -236,13 +237,13 @@
         <h2 class="resume-title">Soft-skills</h2>
         <h3 class="resume-subtitle"></h3>
         <ul class="resume-description">
-          <li >Apprendimento rapido</li> 
-          <li >Multipotenziale</li>
-          <li >Lavoro di Squadra</li>
-          <li >Team Building</li>
-          <li >Creatività</li>
-          <li >Performante sotto stress</li>
-          <li> Amichevole</li>
+          <li [innerHTML]="language.resumeSkill1" ></li> 
+          <li [innerHTML]="language.resumeSkill2"></li>
+          <li [innerHTML]="language.resumeSkill3"></li>
+          <li [innerHTML]="language.resumeSkill4"></li>
+          <li [innerHTML]="language.resumeSkill5"></li>
+          <li [innerHTML]="language.resumeSkill6"></li>
+          <li [innerHTML]="language.resumeSkill7"></li>
         </ul>
       </div>
     </div>
@@ -252,24 +253,24 @@
       <div class="tape-section"></div>
       <div class="lavoro-container">
       <div class="lavoro left">
-        <h2>Commesso</h2>
+        <h2 [innerHTML]="language.jobTitle1"></h2>
         <h3> sep2020-nov2024</h3>
-        <p>Cartolibreria L'apostrofo</p>
+        <p  [innerHTML]="language.jobPlace1"></p>
       </div>
       <div class="lavoro right">
-        <h2>AgenteSegreto</h2>
-        <h3> Data in piccolo</h3>
-        <p> Presso:</p>
+        <h2 [innerHTML]="language.jobTitle2"></h2>
+        <h3>jun2022-sep2024</h3>
+        <p></p>
       </div>
       <div class="lavoro left">
-        <h2>Terapista</h2>
-        <h3> Data in piccolo</h3>
-        <p> Presso:</p>
+        <h2 [innerHTML]="language.jobTitle3"></h2>
+        <h3> dec2017-oct2019</h3>
+        <p  [innerHTML]="language.jobPlace3"></p>
       </div>
       <div class="lavoro right">
-        <h2>Streamer</h2>
-        <h3> Data in piccolo</h3>
-        <p> Presso:</p>
+        <h2 [innerHTML]="language.jobTitle4"></h2>
+        <h3> 2014-2017</h3>
+        <p  [innerHTML]="language.jobPlace4"></p>
       </div>
     </div>
       <div class="timeline">
@@ -287,14 +288,14 @@
       <p> Offre le sue elevate capacità al servizio della comuità. <br> Per info o offerte lavorative si possono utilizzare i contatti qui di seguito. <br> Forza! Prendi un bigliettino! <br></p>
     </div>
     <div class="tag-container">
-      <div class="paper-tag"></div>
-      <div class="paper-tag"></div>
-      <div class="paper-tag"></div>
-      <div class="paper-tag"></div>
-      <div class="paper-tag"></div>
+      <div class="paper-tag"><a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png"><p>377 082 5242</p></a></div>
+      <div class="paper-tag"><a><img class="emailIcon" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"><p class="email">simone.zavaglia93<br>&#64;gmail.com </p></a></div>
+      <div class="paper-tag"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"></a></div>
+      <div class="paper-tag"><a><img class="git" src="https://pngimg.com/d/github_PNG40.png"><p class="gitP">il mio Git</p></a></div>
+      <div class="paper-tag"><a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png"><p>377 082 5242</p></a></div>
     </div>
-    <div class="paper-tag2"></div>
-    <div class="paper-tag3"></div>
-    <div class="paper-tag4"></div>
-    <div class="paper-tag5"></div>
+    <div class="paper-tag2"><a>link</a></div>
+    <div class="paper-tag3"><a>link</a></div>
+    <div class="paper-tag4"><a>link</a></div>
+    <div class="paper-tag5"><a>link</a></div>
   </section>

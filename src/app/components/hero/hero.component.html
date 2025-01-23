@@ -14,7 +14,7 @@
         <h1 class="title" [innerHTML]="language.heroTitle"></h1>
         <p class="description"[innerHTML]="language.heroDescription"></p>
         <button class="cta"> <b>Hire Me</b> </button>
-        <a class="go-to-proj"><b> Projects <i class="fa-solid fa-arrow-up-long"></i></b></a>
+        <a class="go-to-proj" (click)="scrollToContacts('project-container')"><b> Projects <i class="fa-solid fa-arrow-up-long"></i></b></a>
         <div class="contact-container">
          <h3 [innerHTML]="language.heroContacts"></h3>
          <p class="mail">simone.zavaglia93&#64;gmail.com <br><span> +39 377 082 5242</span></p>
@@ -54,9 +54,9 @@
             <div class="logos"[class.logos-animate]="activeAnimations['ts']" (click)="animateLogo('ts')" id="ts">
                 <img class="icon"  src="assets/images/ts-logo-round-512.png">
             </div>
-            <div class="contact-me">
+            <div (click)="scrollToContacts('contact-container')" class="contact-me">
                 <p [innerHTML]="language.heroContactMe"></p>
-                <a><i class="fa-solid fa-arrow-right-long"></i></a>
+                <a ><i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
     </div>
       

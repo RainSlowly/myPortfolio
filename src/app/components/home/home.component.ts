@@ -1,7 +1,7 @@
 import { Component, OnInit,Inject, PLATFORM_ID,ViewEncapsulation} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { tapeAnimation,paperFAnimation,paperFAnimation3,
-  paperlinedAnimation,postItAnimation,pinAnimation,paperNotepadAnimation, 
+  paperlinedAnimation,postItAnimation,postItAnimationAbout, postItAnimationAbout2,pinAnimation,paperNotepadAnimation, 
   projectAnimation,paperNotepadAltAnimation,paperFAnimation4,
   tapeAnimation2,segnaAnimation,projectAltAnimation, paperFAnimation2,
   postItAnimation2,
@@ -16,7 +16,7 @@ import { LanguageService } from '../../services/language.service';
   styleUrl: './home.component.css',
   encapsulation: ViewEncapsulation.None,
   animations: [ projectAnimation, tapeAnimation, paperFAnimation, paperFAnimation3,
-    paperlinedAnimation,postItAnimation,pinAnimation, paperNotepadAnimation,
+    paperlinedAnimation,postItAnimation, postItAnimationAbout,postItAnimationAbout2,pinAnimation, paperNotepadAnimation,
   paperNotepadAltAnimation, paperFAnimation4, tapeAnimation2,segnaAnimation,
 projectAltAnimation, paperFAnimation2, postItAnimation2, paperPokeAnimation, segnaAnimation2]
 })
@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
   isPlatFormBrowser:boolean;
   fixAvatar:boolean=false;
   isTriggered:boolean=false;
+  wasHero:boolean=false;
+  wasPresentation:boolean=false;
   projTriggered:boolean=false;
   selectedProj:number=5;
   alternative:boolean=true;
@@ -48,7 +50,7 @@ proj3Utilized: " ", proj3Description: " ", proj4Title: " ", proj4Utilized: " ",
 proj4Description: " ", resumeEdu: " ", resumeEdu2: " ", resumeLang: " ",
 resumeLang2: " ", resumeSkill1: " ", resumeSkill2: " ", resumeSkill3: " ",
 resumeSkill4: " ", resumeSkill5: " ", resumeSkill6: " ", resumeSkill7: " ",
-jobTitle1: " ", jobPlace1: " "};
+jobTitle1: " ", jobPlace1: " ",jobTitle2:"",jobPlace2:"",jobTitle3:"",jobPlace3:"",jobTitle4:"",jobPlace4:""};
 
 selectedPhrase:string="";
 key: keyof typeof this.avatarLanguage = "aboutLocked";
@@ -97,33 +99,78 @@ avatarLanguage={
 
   onScroll(): void {
    
-    
+    const heroSection = document.getElementById('hero');
     const aboutMeSection = document.getElementById('about-me');
     const projectSection= document.getElementById('project-container');
-    if (!aboutMeSection || !projectSection) return;
+    const resumeSection= document.getElementById('resume');
+    const contactSection= document.getElementById('contact-container')
+    if (!aboutMeSection || !projectSection || !resumeSection || !contactSection || !heroSection
 
+    ) return;
+
+    const heroSectionTop = heroSection.getBoundingClientRect().top;
     const sectionTop = aboutMeSection.getBoundingClientRect().top;
     const projectSectionTop = projectSection.getBoundingClientRect().top;
+    const resumeSectionTop = resumeSection.getBoundingClientRect().top;
+    const contactSectionTop= contactSection.getBoundingClientRect().top;
 
-    // Aggiungi la classe quando si supera la sezione di 50px
-    if (sectionTop <= -50 && !this.isTriggered) {
-      console.log(this.avatarLanguage)
+    if( heroSectionTop <= -300 && heroSectionTop >=-400 && this.fixAvatar){
+
+      this.wasHero=true;   
+      console.log(this.wasHero)
+    
+    }if (sectionTop <= 600 && sectionTop >100 && this.wasHero===true) {
+      this.key="heroReturn"
+      this.selectedPhrase=this.avatarLanguage[this.key];
+      this.wasHero=false;
+      console.log(this.wasHero)
+      this.animationService.changeExpression("soffoco");  
+    } if (sectionTop <= 0 && !this.isTriggered) {
       this.key="aboutMoving"
       this.selectedPhrase=this.avatarLanguage[this.key];
       this.fixAvatar = true;
       this.isTriggered = true;
       this.animationService.startAnimation();
-      this.removeScrollListener(); // Disabilita il listener dopo il primo trigger
-    } if (projectSectionTop <=300 && !this.projTriggered ) {
-      console.log(this.avatarLanguage)
-      this.key="project1"
+    
+    } if (sectionTop <= 0 && this.isTriggered && this.wasPresentation) {
+      this.key="return1"
+      this.selectedPhrase=this.avatarLanguage[this.key];
+      this.animationService.startSpeaking();
+    }if (projectSectionTop <=200 && !this.projTriggered ) {
+      this.key="project1";
+      this.wasPresentation=true;
       this.selectedPhrase=this.avatarLanguage[this.key];
       this.selectedProj=0;
       this.animationStates[0] = 'visible';
       this.projTriggered=true;
       this.animationService.startSpeaking();
       this.removeScrollListener();
-    }
+    }if (projectSectionTop <=200 && this.projTriggered ) {
+      this.wasPresentation=true;
+      if(this.selectedProj=== 0){
+        this.key="project1"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+      }else if(this.selectedProj=== 1){
+        this.key="project2"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+      }else if(this.selectedProj=== 2 && this.alternative){
+        this.key="project3"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+      }else if(this.selectedProj=== 2 && !this.alternative){
+        this.key="project4"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+      }
+      this.animationService.startSpeaking();
+    }  
+    if (resumeSectionTop <=250) {
+    this.key="resume1";
+    this.selectedPhrase=this.avatarLanguage[this.key];
+    this.animationService.startSpeaking();
+    }if (contactSectionTop<=300) {
+      this.key="contacts";
+      this.selectedPhrase=this.avatarLanguage[this.key];
+      this.animationService.startSpeaking();
+      }
   }
 
 scrollToSection(sectionId: string): void {
@@ -166,12 +213,24 @@ getBaloonSource(){
    
     this.animationStates[this.selectedProj]="hidden";
     setTimeout(() => {
-      this.animationService.startSpeaking();
+      
       this.selectedProj = id;
       this.animationStates[id] = 'visible';
-      console.log(this.selectedProj)
+      if(id=== 0){
+        this.key="project1"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+        this.animationService.changeExpression("dubbio");
+        this.alternative=false;
+      }else if(id=== 1){
+        this.key="project2"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+        this.animationService.changeExpression("soffoco");
+        this.alternative=false;
+      }else if(id=== 2){
+        this.key="project3"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+      }
     }, 600);
-    
   }
 
   changeAlternative():void{
@@ -181,6 +240,8 @@ getBaloonSource(){
       this.animationService.startSpeaking();
       this.alternative=false;
       this.alternativeState = 'visible';
+      this.key="project4";
+      this.selectedPhrase=this.avatarLanguage[this.key]
     }, 600);
   }
 

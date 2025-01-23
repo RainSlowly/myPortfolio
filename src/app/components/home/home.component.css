@@ -33,7 +33,7 @@
 }
 
 
-.navigation{
+#navigation{
     position: sticky;
     width: 100%;
     height: 90px;
@@ -58,7 +58,7 @@
         cursor: pointer;
       }
 }
-.navigation::after {
+#navigation::after {
   content: "";
   position: absolute;
   top: 100.4%;
@@ -72,7 +72,7 @@
 
 app-folded-video{
   position: absolute;
-  top: 1330px;
+  top: 1420px;
   left:66%;
   z-index: 6;
 
@@ -92,7 +92,7 @@ app-folded-video{
   position: absolute;
   width: 350px;
   height: auto;
-  top: 1150px;
+  top: 1210px;
   left:83%;
   z-index: 6;
 
@@ -364,88 +364,6 @@ z-index: 7;
 
 }
 
-.pin {
-  --pin-color: #d02627;
-  --pin-dark: #9e0608;
-  --pin-light: #fc7e7d;
-
-  position: absolute;
-  top: -6%;
-  left: 90px;
-  width: 60px;
-  height: 50px;   
-  filter: drop-shadow(-17px 11px 10px rgba(99, 99, 99, 0.466));
-
-}
-
-
-.metal {
-  position: absolute;
-  width: 5px;
-  height: 20px;
-  background: linear-gradient(to right, #808080, 40%, #eae8e8, 50%, #808080);
-  border-radius: 0 0 30% 30%;
-  transform: rotate(50deg);
-  transform-origin: bottom left;
-  top: 15px;
-  border-bottom: 1px solid #808080;
-}
-
-.bottom-circle {
-  position: absolute;
-  right: 15px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: var(--pin-color);
-  background: radial-gradient(
-    circle at bottom right,
-    var(--pin-light),
-    25%,
-    var(--pin-dark),
-    90%,
-    var(--pin-color)
-  );
-}
-
-/* Barrel */
-.bottom-circle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -2px;
-  width: 20px;
-  height: 30px;
-  transform: rotate(55deg);
-  transform-origin: 100% 100%;
-  border-radius: 0 0 40% 40%;
-  background: linear-gradient(
-    to right,
-    var(--pin-dark),
-    30%,
-    var(--pin-color),
-    90%,
-    var(--pin-light)
-  );
-}
-
-/* Top circle */
-.bottom-circle::after {
-  content: "";
-  position: absolute;
-  right: -10px;
-  top: -5px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at right,
-    var(--pin-light),
-    30%,
-    var(--pin-color),
-    var(--pin-dark) 80%
-  );
-}
 
 .post-it-container2 {
   display: flex;
@@ -779,6 +697,7 @@ z-index: 7;
     animation-fill-mode: forwards;
     animation-delay: 1.3s;
 
+ 
   }
 
   .paperF::after {
@@ -854,6 +773,17 @@ z-index: 7;
   }
 
   /*Sezione di foglio*/
+  .sticker-zwei{
+    position: absolute;
+    top: 256px;
+    left:800px;
+    width: 150px;
+    height: auto;
+    rotate: -16deg;
+    z-index: 5;
+    opacity: 0.8;
+    filter: drop-shadow(-1px 1px 1px rgba(36, 36, 36, 0.389)) saturate(1.1);
+  }
 
   .paperlined {
     position: relative;
@@ -952,7 +882,7 @@ z-index: 7;
       transform-origin: top left;
     }
 
-    .paper p {
+    .paper a {
       margin: auto;
     }
 
@@ -1154,7 +1084,7 @@ z-index: 7;
       .scribble-poke{
         position: absolute;
         top: 174px;
-        left: 340px;
+        left: 375px;
         width: 80px;
         height: auto;
         rotate: -18deg;
@@ -1162,8 +1092,8 @@ z-index: 7;
       }
       .scribble-cuore{
         position: absolute;
-        top: 555px;
-        left:260px;
+        top: 575px;
+        left:270px;
         width: 60px;
         height: auto;
         rotate: 5deg;
@@ -2072,7 +2002,7 @@ z-index: 7;
           filter: drop-shadow(1px 1px 1px rgba(99, 99, 99, 0.589));
 
           h2{
-            font-size: 24px;
+            font-size: 21px;
             position: relative;
             top: -32px;
           }
@@ -2162,6 +2092,63 @@ z-index: 7;
           margin: 1px;
           background: #fffcf9;
           
+
+          img{
+            position: relative;
+            left: -10px;
+            top: -3px;
+            width: 90px;
+            height: auto;
+          }
+
+          p{
+            position: relative;
+            width: 120px;
+            top: 5px;
+            font-size: 18px;
+            left: -24px;
+            transform: rotate(90deg);
+          }
+             
+        .emailIcon{
+          position: relative;
+          left: 10px;
+          top: 15px;
+          width: 50px;
+          height: auto;
+        }
+
+        .email{
+          position: relative;
+          transform: rotate(90deg);
+          width: 100px;
+          top: 20px;
+          left: -10px;
+        }
+
+        .insta{
+          position: relative;
+          left: 10px;
+          top: 20px;
+          width: 50px;
+          height: auto;
+        }
+        .git{
+          position: relative;
+          left: 10px;
+          top: 20px;
+          width: 60px;
+          height: auto;
+        }
+
+        .gitP{
+          position: relative;
+          left: -9px;
+          top: 32px;
+          width: 90px;
+          height: auto;
+        }
+
         }
       }
       .paper-tag2{
@@ -2173,6 +2160,7 @@ z-index: 7;
         margin: 1px;
         background: #fffcf9;
         z-index: 3;
+     
       }
 
       .paper-tag3{

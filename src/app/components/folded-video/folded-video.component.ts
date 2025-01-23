@@ -31,7 +31,7 @@ export class FoldedVideoComponent implements OnInit, OnDestroy {
   currentMouthImage = "assets/images/animation/Bocca"+ this.selectedMouthImageId + ".png";
 
   private speakingInterval: any = null; 
-
+  private speakingTimeout: any = null; 
 
   constructor(
     private animationService: AvatarAnimationsService,
@@ -64,8 +64,19 @@ closeEyes():void{
    this.currentEyeImage = "assets/images/animation/Occhi" + this.selectedEyeImageId + ".png";
 }
 
+openEyes():void{
+  this.isClosedEyes=false;
+  this.selectedEyeImageId = "Aperti";
+   this.currentEyeImage = "assets/images/animation/Occhi" + this.selectedEyeImageId + ".png";
+}
+
+changeBrows(id:string):void{
+  this.selectedBrowsImageId=id;
+  this.currentBrowsImage="assets/images/animation/Sopracciglia"+ this.selectedBrowsImageId + ".png";
+}
+
  rollEye():void{
-  console.log(this.currentEyeImage, this.selectedEyeImageId)
+  
   const blink=()=>{
   if(this.selectedEyeImageId==="Aperti" && this.isClosedEyes!=true){
     this.selectedEyeImageId = "Chiusi";
@@ -89,68 +100,55 @@ closeEyes():void{
  }
 
 
+clearMouthAnimation():void{
+  if (this.speakingInterval !== null) {
+    clearInterval(this.speakingInterval);
+    this.speakingInterval = null;
 
+}
+if (this.speakingTimeout !== null) {
+  clearTimeout(this.speakingTimeout);
+  this.speakingTimeout = null;
+ 
+}
+}
 
 
  startSpeak(): void {
-   if (!this.isClosedMouth) {
-     console.log("Speaking animation started");
- 
-     // Ferma un eventuale intervallo già attivo
-     if (this.speakingInterval !== null) {
-       clearInterval(this.speakingInterval);
-     }
- 
-     // Avvia un nuovo intervallo per cambiare le immagini della bocca
-     this.speakingInterval = window.setInterval(() => {
-       const tempArray = this.allMouthId.filter(id => id !== this.selectedMouthImageId);
-       this.selectedMouthImageId = tempArray[
-         Math.floor(Math.random() * tempArray.length)
-       ];
-       this.currentMouthImage = "assets/images/animation/Bocca" + this.selectedMouthImageId + ".png";
-     }, 110);
-   } else {
-     this.rollMouth();
-   }
- }
- 
- rollMouth(): void {
-   console.log("Roll mouth method called");
- 
-   // Ferma l'intervallo se la bocca viene chiusa
-   if (this.speakingInterval != null) {
-     clearInterval(this.speakingInterval);
-     this.speakingInterval = null; // Rimuove il riferimento
-   }
- 
-   if (this.isClosedMouth) {
-    const allowedIds = ["Chiusa1", "Chiusa2"];
-    const tempArray = this.allMouthId.filter(id => allowedIds.includes(id));
-    this.selectedMouthImageId = tempArray[
-      Math.floor(Math.random() * tempArray.length)
-    ]
-     this.currentMouthImage = "assets/images/animation/Bocca" + this.selectedMouthImageId + ".png";
-   } else {
-     console.log("Mouth is open, starting to speak");
-     this.startSpeak();
- 
-     // Chiude automaticamente la bocca dopo un intervallo
-     window.setTimeout(() => {
-       this.isClosedMouth = true;
-       this.rollMouth();
-     },Math.random() *4000+3000);
-   }
- }
- 
- activateMouth(): void {
-   console.log("Activating mouth", this.selectedMouthImageId, this.isClosedMouth);
- 
-   // Cambia lo stato per aprire la bocca
-   this.isClosedMouth = false;
- 
-   // Avvia il comportamento corrispondente
-   this.rollMouth();
- }
+  this.clearMouthAnimation();
+  this.isClosedMouth = false;
+  this.speakingInterval = window.setInterval(() => {
+      const tempArray = this.allMouthId.filter(id => id !== this.selectedMouthImageId);
+      this.selectedMouthImageId = tempArray[
+          Math.floor(Math.random() * tempArray.length)
+      ];
+      this.currentMouthImage = "assets/images/animation/Bocca" + this.selectedMouthImageId + ".png";
+      
+  }, 110);
+  const duration = Math.random() * 4000 + 3000;
+  this.speakingTimeout = setTimeout(() => {
+    this.stopMouth();
+}, duration);
+}
+
+stopMouth(): void {
+     this.clearMouthAnimation();
+  this.isClosedMouth = true;
+  this.selectedMouthImageId = "Chiusa1";
+  this.currentMouthImage = "assets/images/animation/Bocca" + this.selectedMouthImageId + ".png";
+  
+}
+
+activateMouth(): void {
+
+  this.startSpeak();
+}
+
+changeMouth(id: string): void {
+  this.selectedMouthImageId = id;
+  this.currentMouthImage = "assets/images/animation/Bocca" + this.selectedMouthImageId + ".png";
+
+}
 
 ngOnDestroy(): void {
   
