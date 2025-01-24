@@ -4,9 +4,8 @@ import { tapeAnimation,paperFAnimation,paperFAnimation3,
   paperlinedAnimation,postItAnimation,postItAnimationAbout, postItAnimationAbout2,pinAnimation,paperNotepadAnimation, 
   projectAnimation,paperNotepadAltAnimation,paperFAnimation4,
   tapeAnimation2,segnaAnimation,projectAltAnimation, paperFAnimation2,
-  postItAnimation2,
-  paperPokeAnimation,
-  segnaAnimation2} from './animation';
+  postItAnimation2,paperPokeAnimation,  segnaAnimation2, linkAnimation
+} from './animation';
 import { AvatarAnimationsService } from '../../services/avatar-animations.service';
 import { LanguageService } from '../../services/language.service';
 
@@ -18,7 +17,7 @@ import { LanguageService } from '../../services/language.service';
   animations: [ projectAnimation, tapeAnimation, paperFAnimation, paperFAnimation3,
     paperlinedAnimation,postItAnimation, postItAnimationAbout,postItAnimationAbout2,pinAnimation, paperNotepadAnimation,
   paperNotepadAltAnimation, paperFAnimation4, tapeAnimation2,segnaAnimation,
-projectAltAnimation, paperFAnimation2, postItAnimation2, paperPokeAnimation, segnaAnimation2]
+projectAltAnimation, paperFAnimation2, postItAnimation2, paperPokeAnimation, segnaAnimation2,linkAnimation]
 })
 export class HomeComponent implements OnInit {
   
@@ -30,7 +29,9 @@ export class HomeComponent implements OnInit {
   projTriggered:boolean=false;
   selectedProj:number=5;
   alternative:boolean=true;
-  alternativeState:string='visible'
+  linkAnimationState: { [key: number]: string } = { 0: 'initial', 1: 'initial', 2: 'initial', 3: 'initial', 4: 'initial' };
+  selectedLink:number=10;
+  alternativeState:string='visible';
   animationStates: { [key: number]: string } = { 0: 'visible', 1: 'visible', 2: 'visible' };
   projectButtons=[ {name:'Find It Game',static:'assets/images/button normal.png', gif :'assets/images/Button.gif'},
     {name:'Poke Game',static:'assets/images/button normal.png', gif :'assets/images/Button.gif'},
@@ -264,5 +265,27 @@ getBaloonSource(){
   }
   
   }
+linkto(element:number):void{
+  if(this.isPlatFormBrowser===true){
+    this.selectedLink=element;
+    this.linkAnimationState[element]="detached";
 
+    setTimeout(() => {
+      if(element=== 0){
+        const message = 'Ciao, saresti interessato a lavorare per noi?'; 
+        const url = `https://wa.me/3770825242}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+      }else if(element===1){
+        const email = 'simone.zavaglia93@gmail.com';
+        const subject = 'Oggetto della mail';
+        const body = 'Ciao, ti scrivo perché...';
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }else if (element===2){
+        window.location.href = 'https://www.instagram.com/giuseppe__zavaglia/';
+      }else if (element===3){
+       window.location.href = 'https://github.com/RainSlowly';
+      }
+    }, 1000);
+  }
+}
 }

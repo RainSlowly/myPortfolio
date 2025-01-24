@@ -288,14 +288,19 @@
       <p> Offre le sue elevate capacità al servizio della comuità. <br> Per info o offerte lavorative si possono utilizzare i contatti qui di seguito. <br> Forza! Prendi un bigliettino! <br></p>
     </div>
     <div class="tag-container">
-      <div class="paper-tag"><a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png"><p>377 082 5242</p></a></div>
-      <div class="paper-tag"><a><img class="emailIcon" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"><p class="email">simone.zavaglia93<br>&#64;gmail.com </p></a></div>
-      <div class="paper-tag"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"></a></div>
-      <div class="paper-tag"><a><img class="git" src="https://pngimg.com/d/github_PNG40.png"><p class="gitP">il mio Git</p></a></div>
-      <div class="paper-tag"><a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png"><p>377 082 5242</p></a></div>
+      <div class="paper-tag" [@linkAnimation]="linkAnimationState[0]" (click)="linkto(0)">
+        <a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png">
+          <p>377 082 5242</p>
+        </a>
+      </div>
+      <div class="paper-tag"[@linkAnimation]="linkAnimationState[1]" (click)="linkto(1)">
+        <a><img class="emailIcon" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"><p class="email">simone.zavaglia93<br>&#64;gmail.com </p></a></div>
+      <div class="paper-tag"[@linkAnimation]="linkAnimationState[2]" (click)="linkto(2)"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"></a></div>
+      <div class="paper-tag"[@linkAnimation]="linkAnimationState[3]" (click)="linkto(3)" ><a ><img class="git" src="https://pngimg.com/d/github_PNG40.png"><p class="gitP">il mio Git</p></a></div>
+      <div class="paper-tag"[@linkAnimation]="linkAnimationState[4]" (click)="linkto(4)"><a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png"><p>377 082 5242</p></a></div>
     </div>
-    <div class="paper-tag2"><a>link</a></div>
-    <div class="paper-tag3"><a>link</a></div>
-    <div class="paper-tag4"><a>link</a></div>
-    <div class="paper-tag5"><a>link</a></div>
+    <div class="paper-tag2"[@linkAnimation]="linkAnimationState[5]" (click)="linkto(5)"><a>link</a></div>
+    <div class="paper-tag3"[@linkAnimation]="linkAnimationState[6]" (click)="linkto(6)"><a>link</a></div>
+    <div class="paper-tag4"[@linkAnimation]="linkAnimationState[7]" (click)="linkto(7)"><a>link</a></div>
+    <div class="paper-tag5"[@linkAnimation]="linkAnimationState[8]" (click)="linkto(8)"><a>link</a></div>
   </section>

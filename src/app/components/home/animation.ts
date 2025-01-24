@@ -202,3 +202,15 @@ export const segnaAnimation2 = trigger('segnaAnimation2', [
   ]),
  
 ]);
+
+export const linkAnimation = trigger('linkAnimation', [
+  state('initial',
+    style({ transform: 'translateY(0)', opacity: 1 }),
+  ),
+  state('detached',
+    style({ transform: 'translateY(100%)', opacity: 0 }),
+  ),
+  transition('initial => detached', [
+    animate('700ms ease-in')
+  ])
+]);
