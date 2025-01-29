@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   projTriggered:boolean=false;
   selectedProj:number=5;
   alternative:boolean=true;
-  linkAnimationState: { [key: number]: string } = { 0: 'initial', 1: 'initial', 2: 'initial', 3: 'initial', 4: 'initial' };
+  linkAnimationState: { [key: number]: string } = { 0: 'initial', 1: 'initial', 2: 'initial', 3: 'initial', 4: 'initial', 5: 'initial' , 6: 'initial' , 7: 'initial' , 8: 'initial'  };
   selectedLink:number=10;
   alternativeState:string='visible';
   animationStates: { [key: number]: string } = { 0: 'visible', 1: 'visible', 2: 'visible' };
@@ -271,18 +271,18 @@ linkto(element:number):void{
     this.linkAnimationState[element]="detached";
 
     setTimeout(() => {
-      if(element=== 0){
+      if(element=== 0|| element ===4 || element===8){
         const message = 'Ciao, saresti interessato a lavorare per noi?'; 
         const url = `https://wa.me/3770825242}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
-      }else if(element===1){
+      }else if(element===1 || element===6){
         const email = 'simone.zavaglia93@gmail.com';
         const subject = 'Oggetto della mail';
         const body = 'Ciao, ti scrivo perché...';
         window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      }else if (element===2){
-        window.location.href = 'https://www.instagram.com/giuseppe__zavaglia/';
-      }else if (element===3){
+      }else if (element===2 || element===5){
+        window.location.href = 'https://www.instagram.com/sprotzpool/';
+      }else if (element===3 || element===7){
        window.location.href = 'https://github.com/RainSlowly';
       }
     }, 1000);
