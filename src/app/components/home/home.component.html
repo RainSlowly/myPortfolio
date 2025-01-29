@@ -46,7 +46,7 @@
   <img class="stickerIo" src="assets/images/StickerIO.png">
   <img class="paperclip" src="assets/images/paperclip.png">
   <div class="polaroid">
-    <img src="assets/images/io.jpg">
+    <img src="assets/images/iopolaroid.png">
     <h2 [innerHTML]="language.aboutPolaroid"></h2>
   </div>
 
@@ -128,9 +128,15 @@
 
     <div id="project2" *ngIf="selectedProj===1"[@projectAnimation]="animationStates[1]">
       <div class="tape-single" @tapeAnimation></div>
-      <div class="paperF yellow" @paperFAnimation2>
+      <div class="paperF yellow"  (click)="redirectToYoutube('poke')"@paperFAnimation2>
         <div class="tape-section" @tapeAnimation></div>
-        <p>metti il video anteprima qui</p>
+        <iframe class="videopoke"
+  [src]="'https://www.youtube.com/embed/z6o8C7Tcws4?autoplay=1&mute=1&loop=1&playlist=z6o8C7Tcws4&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&playsinline=1&cc_load_policy=0&iv_load_policy=3'| safeUrl"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen
+  (click)="redirectToYoutube('poke')">
+</iframe>
         
       </div>
       <div class="pin"@pinAnimation >
@@ -187,9 +193,15 @@
                 <p>Commercial site</p>
               </div>   
              </div> 
-          <div class="paperF2 green" @paperFAnimation4>
+          <div class="paperF2 green" (click)="redirectToYoutube('bar')" @paperFAnimation4 >
                 <div class="top-tapeG" @tapeAnimation2></div>
-                <p>metti il video anteprima qui</p>
+                <iframe class="videopoke"
+  [src]="'https://www.youtube.com/embed/kcJ8_EDRfGE?autoplay=1&mute=1&loop=1&playlist=kcJ8_EDRfGE&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&playsinline=1&cc_load_policy=0&iv_load_policy=3'| safeUrl"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen
+>
+</iframe>
               </div>
             <div class="paper-notepad2" @paperNotepadAltAnimation>
             <h3 [innerHTML]="language.proj4Title">Sito commerciale - Ace of Cups</h3>
@@ -299,8 +311,10 @@
       <div class="paper-tag"[@linkAnimation]="linkAnimationState[3]" (click)="linkto(3)" ><a ><img class="git" src="https://pngimg.com/d/github_PNG40.png"><p class="gitP">il mio Git</p></a></div>
       <div class="paper-tag"[@linkAnimation]="linkAnimationState[4]" (click)="linkto(4)"><a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png"><p>377 082 5242</p></a></div>
     </div>
-    <div class="paper-tag2"[@linkAnimation]="linkAnimationState[5]" (click)="linkto(5)"><a>link</a></div>
-    <div class="paper-tag3"[@linkAnimation]="linkAnimationState[6]" (click)="linkto(6)"><a>link</a></div>
-    <div class="paper-tag4"[@linkAnimation]="linkAnimationState[7]" (click)="linkto(7)"><a>link</a></div>
-    <div class="paper-tag5"[@linkAnimation]="linkAnimationState[8]" (click)="linkto(8)"><a>link</a></div>
+    <div class="paper-tag2"[@linkAnimation]="linkAnimationState[5]" (click)="linkto(5)"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"></a></div>
+    <div class="paper-tag3"[@linkAnimation]="linkAnimationState[6]" (click)="linkto(6)"><a><img class="emailIcon" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"><p class="email">simone.zavaglia93<br>&#64;gmail.com </p></a></div>
+    <div class="paper-tag4"[@linkAnimation]="linkAnimationState[7]" (click)="linkto(7)"><a><img class="git" src="https://pngimg.com/d/github_PNG40.png"><p class="gitP">il mio Git</p></a></div>
+    <div class="paper-tag5"[@linkAnimation]="linkAnimationState[8]" (click)="linkto(8)"> <a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png">
+      <p>377 082 5242</p>
+    </a></div>
   </section>

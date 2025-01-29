@@ -9,6 +9,7 @@
     --clr2: #F8F3E8;
     --clr3: #ECE8E6; /* Darken of clr2 by 2% */
     --clr4: #F3BCAA;
+    overflow-x: hidden;
   }
 
 

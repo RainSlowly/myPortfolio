@@ -9,7 +9,7 @@ import { LiteComponent } from './components/lite/lite.component';
 import { FoldedVideoComponent } from './components/folded-video/folded-video.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StyledTextDirective } from './styled-text.directive';
-
+import { SafeUrlPipe } from './services/safe-url.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,16 +17,18 @@ import { StyledTextDirective } from './styled-text.directive';
     HomeComponent,
     LiteComponent,
     FoldedVideoComponent,
-    StyledTextDirective
+    StyledTextDirective,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     provideClientHydration()
   ],
+  exports: [SafeUrlPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

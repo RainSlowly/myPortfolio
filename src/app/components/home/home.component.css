@@ -130,7 +130,7 @@ z-index: 7;
 #hero{
   position: relative;
   width: 100vw;
-  height: 95vh;
+  height: 97vh;
  background-color: #fffbf4;
  z-index: 20;
   app-hero{
@@ -980,12 +980,13 @@ z-index: 7;
     position: relative;
     width: 10%;
     left: 2%;
-    z-index: 4;
+
     filter: drop-shadow(3px 3px 1px rgba(99, 99, 99, 0.123));
     
   }
   .tape-single:first-of-type {
     top: 0;
+    
   }
 
   .tape-single:last-of-type {
@@ -1010,6 +1011,7 @@ z-index: 7;
   .tape-single:first-of-type::before {
     transform: rotate(-1deg);
     left: -4vmin;
+    
   }
 
   .tape-single:first-of-type::after {
@@ -1129,8 +1131,8 @@ z-index: 7;
 
   .sticker-poke{
     position: absolute;
-    top: 805px;
-    left:920px;
+    top: 765px;
+    left:940px;
     width: 170px;
     height: auto;
     rotate: -2deg;
@@ -1156,6 +1158,7 @@ z-index: 7;
     filter: drop-shadow(-2px 2px 2px rgba(99, 99, 99, 0.589));
     transform: rotate(-1deg);
     transform-origin: top left;
+  
   }
 
   .paper p {
@@ -1194,7 +1197,7 @@ z-index: 7;
     margin: auto;
     margin-top: 50px;
     z-index: 2;
-
+    cursor: pointer;
   }
 
   .paperF::after {
@@ -1233,6 +1236,7 @@ z-index: 7;
     border-right: 1px dotted var(--tape-edge-gray);
     border-left: 1px dotted var(--tape-edge-gray);
     opacity: 0.5;
+    z-index: 14;
   }
 
   .top-tapeG {
@@ -1246,6 +1250,7 @@ z-index: 7;
     border-left: 1px dotted var(--tape-edge-gray);
     opacity: 0.5;
     transform: rotate(-19deg);
+    z-index: 14;
   }
 
   .tape-section:first-of-type {
@@ -1266,6 +1271,7 @@ z-index: 7;
     opacity: 0.5;
     border-right: 1px dotted var(--tape-edge-gray);
     border-left: 1px dotted var(--tape-edge-gray);
+    z-index: 14;
   }
 
   .tape-section:last-of-type::after {
@@ -1577,6 +1583,7 @@ z-index: 7;
     border-left: 1px dotted var(--tape-edge-gray);
     opacity: 0.5;
     transform: rotate(-19deg);
+    z-index: 14;
   }
 
   .tape-section:first-of-type {
@@ -2160,7 +2167,22 @@ z-index: 7;
         margin: 1px;
         background: #fffcf9;
         z-index: 3;
-     
+        p{
+          position: relative;
+          width: 120px;
+          top: 5px;
+          font-size: 18px;
+          left: -24px;
+          transform: rotate(90deg);
+        }
+        .insta{
+          position: relative;
+          left: 10px;
+          top: 20px;
+          width: 50px;
+          height: auto;
+        }
+
       }
 
       .paper-tag3{
@@ -2172,6 +2194,30 @@ z-index: 7;
         margin: 1px;
         background: #fffcf9;
         z-index: 3;
+        p{
+          position: relative;
+          width: 120px;
+          top: 5px;
+          font-size: 18px;
+          left: -24px;
+          transform: rotate(90deg);
+        }
+        .emailIcon{
+          position: relative;
+          left: 10px;
+          top: 15px;
+          width: 50px;
+          height: auto;
+        }
+
+        .email{
+          position: relative;
+          transform: rotate(90deg);
+          width: 100px;
+          top: 20px;
+          left: -10px;
+        }
+
       }
       .paper-tag4{
         position: absolute;
@@ -2182,6 +2228,30 @@ z-index: 7;
         margin: 1px;
         background: #fffcf9;
         z-index: 3;
+        p{
+          position: relative;
+          width: 120px;
+          top: 5px;
+          font-size: 18px;
+          left: -24px;
+          transform: rotate(90deg);
+        }
+        .git{
+          position: relative;
+          left: 10px;
+          top: 20px;
+          width: 60px;
+          height: auto;
+        }
+
+        .gitP{
+          position: relative;
+          left: -9px;
+          top: 32px;
+          width: 90px;
+          height: auto;
+        }
+
       }
       .paper-tag5{
         position: absolute;
@@ -2192,7 +2262,34 @@ z-index: 7;
         margin: 1px;
         background: #fffcf9;
         z-index: 3;
+        
+        img{
+          position: relative;
+          left: -10px;
+          top: -3px;
+          width: 90px;
+          height: auto;
+        }
+        p{
+          position: relative;
+          width: 120px;
+          top: 5px;
+          font-size: 18px;
+          left: -24px;
+          transform: rotate(90deg);
+        }
       }
+}
+
+
+.videopoke{
+position: relative;
+width: 90%;
+height: 90%;
+object-fit: cover;
+pointer-events: none;
+z-index: 10;
+cursor: pointer;
 }
 /*
 .segnapagina {

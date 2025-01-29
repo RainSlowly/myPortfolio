@@ -288,4 +288,16 @@ linkto(element:number):void{
     }, 1000);
   }
 }
+
+
+
+redirectToYoutube(project:string) {
+  if(project='poke'){
+    window.open('https://www.youtube.com/watch?v=z6o8C7Tcws4');
+  }else if(project='bar'){
+    window.open('https://www.youtube.com/watch?v=kcJ8_EDRfGE_blank');
+  }else if(project='findIt'){
+    window.open('https://www.youtube.com/watch?v=kcJ8_EDRfGE_blank');}
+  }
 }
+

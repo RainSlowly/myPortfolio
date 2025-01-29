@@ -264,7 +264,8 @@
         bottom: 0%;
         width: 100%;
         height: auto;
-        z-index: 14;
+        left: -3%;
+    
       
     }
 
@@ -297,14 +298,14 @@
     }
     #angular{
         position: absolute;
-        left: 180px;
-        top: 43%;
+        left: 69px;
+        top: 31%;
         z-index: 2;
     } 
 
     #js{
         position: absolute;
-        left: 455px;
+        left: 385px;
         top: 31%;
         z-index: 2;
 
@@ -316,8 +317,8 @@
 
     #node{
         position: absolute;
-        left: 125px;
-        top: 21%;
+        left: 130px;
+        top: 20%;
         z-index: 2;
 
         .icon{
@@ -328,8 +329,8 @@
 
     #ts{
         position: absolute;
-        left: 55px;
-        top: 33%;
+        left: 455px;
+        top: 43%;
         z-index: 2;
 
         .icon{
