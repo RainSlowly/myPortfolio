@@ -1,10 +1,10 @@
 .hero-content{
     position: relative;
-    left: 17%;
+    left: 18.3vw;
     display: flex;
     flex-wrap: nowrap;
-    width: 1200px;
-    height: 800px;
+    width: 62.5vw;
+    height: 84.7vh;
     font-family: "Ubuntu", sans-serif;
     z-index: 20;
 
@@ -174,8 +174,8 @@
 
             .counters-container{
                 position: relative;
-                top: -8.7%;
-                left: -1%;
+                top: -7.2vh;
+                left: -0.4vw;
                 display:flex ;
                 justify-content: center;
                 align-items: center;
@@ -186,8 +186,8 @@
 
                     .progress{
                         position: relative;
-                        width: 150px;
-                        height: 150px;
+                        width: 7.8vw;
+                        height: 7.8vw;
                         border-radius: 50%;
                         color: aliceblue;
                         background: #44444400 linear-gradient(to right, transparent 50%, var(--clr) 0);
