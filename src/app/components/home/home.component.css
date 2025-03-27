@@ -21,11 +21,11 @@
 }
 
 .flag-button.ita {
-  background-image: url('/myPortfolio/assets/images/italiano.png');
+  background-image: url('https://i.imgur.com/db8qG4b.png');
 }
 
 .flag-button.eng {
-  background-image: url('/myPortfolio/assets/images/inglese.png');
+  background-image: url('https://i.imgur.com/YhBorBN.png');
 }
 
 .flag-button:hover {
