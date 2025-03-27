@@ -119,7 +119,7 @@
                   <div class="metal"></div>
                   <div class="bottom-circle"></div>
                 </div>
-                <a>Il link per giocarlo</a>
+                <a href="https://rainslowly.itch.io/find-it-genious">Il link per giocarlo</a>
               </div>
         </div>
 
@@ -160,7 +160,7 @@
       </div>
       <div class="post-it-container" @postItAnimation2>
         <div class="paper">
-            <p>link per il sito</p>
+            <p>Il link del repository </p>
           </div>
     </div>
     </div>
@@ -195,7 +195,7 @@
              </div> 
           <div class="paperF2 green" (click)="redirectToYoutube('bar')" @paperFAnimation4 >
                 <div class="top-tapeG" @tapeAnimation2></div>
-                <iframe class="videopoke"
+                <iframe class="videopoke" (click)="redirectToYoutube('bar')"
   [src]="'https://www.youtube.com/embed/kcJ8_EDRfGE?autoplay=1&mute=1&loop=1&playlist=kcJ8_EDRfGE&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&playsinline=1&cc_load_policy=0&iv_load_policy=3'| safeUrl"
   frameborder="0"
   allow="autoplay; encrypted-media"
@@ -307,11 +307,11 @@
       </div>
       <div class="paper-tag"[@linkAnimation]="linkAnimationState[1]" (click)="linkto(1)">
         <a><img class="emailIcon" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"><p class="email">simone.zavaglia93<br>&#64;gmail.com </p></a></div>
-      <div class="paper-tag"[@linkAnimation]="linkAnimationState[2]" (click)="linkto(2)"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"></a></div>
+      <div class="paper-tag"[@linkAnimation]="linkAnimationState[2]" (click)="linkto(2)"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"><p class="IGp">&#64;Sprotzpool</p></a></div>
       <div class="paper-tag"[@linkAnimation]="linkAnimationState[3]" (click)="linkto(3)" ><a ><img class="git" src="https://pngimg.com/d/github_PNG40.png"><p class="gitP">il mio Git</p></a></div>
       <div class="paper-tag"[@linkAnimation]="linkAnimationState[4]" (click)="linkto(4)"><a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png"><p>377 082 5242</p></a></div>
     </div>
-    <div class="paper-tag2"[@linkAnimation]="linkAnimationState[5]" (click)="linkto(5)"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"></a></div>
+    <div class="paper-tag2"[@linkAnimation]="linkAnimationState[5]" (click)="linkto(5)"><a><img class="insta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"><p class="IGp">&#64;Sprotzpool</p></a></div>
     <div class="paper-tag3"[@linkAnimation]="linkAnimationState[6]" (click)="linkto(6)"><a><img class="emailIcon" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"><p class="email">simone.zavaglia93<br>&#64;gmail.com </p></a></div>
     <div class="paper-tag4"[@linkAnimation]="linkAnimationState[7]" (click)="linkto(7)"><a><img class="git" src="https://pngimg.com/d/github_PNG40.png"><p class="gitP">il mio Git</p></a></div>
     <div class="paper-tag5"[@linkAnimation]="linkAnimationState[8]" (click)="linkto(8)"> <a><img src="https://www.pngplay.com/wp-content/uploads/12/WhatsApp-Logo-PNG-Photo-Clip-Art-Image.png">

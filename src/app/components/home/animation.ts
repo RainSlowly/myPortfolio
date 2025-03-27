@@ -210,7 +210,12 @@ export const linkAnimation = trigger('linkAnimation', [
   state('detached',
     style({ transform: 'translateY(100%)', opacity: 0 }),
   ),
+  state('expired',
+    style({ transform: 'translateY(0%)', opacity: 0, display:'none' }),
+  ),
   transition('initial => detached', [
-    animate('700ms ease-in')
+    animate('400ms')
+  ]), transition('detached => expired', [
+    animate('200ms ease-in')
   ])
 ]);

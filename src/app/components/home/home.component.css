@@ -196,7 +196,7 @@ justify-content: center;
      }
      h2{
       position: relative;
-      top: -10%;
+      top: -13%;
       left: 10%;
       width: 80%;
       font:52px 'Shadows Into Light', cursive;
@@ -890,6 +890,8 @@ justify-content: center;
 
     .paper a {
       margin: auto;
+      color: rgba(0, 0, 0, 0.829);
+      text-decoration: none;
     }
 
     .pin {
@@ -1537,7 +1539,7 @@ justify-content: center;
     margin: auto;
     margin-top: 50px;
     z-index: 2;
-
+    cursor: pointer;
   }
 
   .paperF::after {
@@ -1754,7 +1756,7 @@ justify-content: center;
     margin: auto;
     margin-top: 50px;
     z-index: 4;
-
+    cursor: pointer;
   }
 
   .paperF2::after {
@@ -2147,6 +2149,16 @@ justify-content: center;
           width: 50px;
           height: auto;
         }
+
+        .IGp{
+          position: relative;
+          width: 120px;
+          top: 50px;
+          font-size: 18px;
+          left: -24px;
+          transform: rotate(90deg);
+        }
+
         .git{
           position: relative;
           left: 10px;
@@ -2178,7 +2190,7 @@ justify-content: center;
         p{
           position: relative;
           width: 120px;
-          top: 5px;
+          top: 50px;
           font-size: 18px;
           left: -24px;
           transform: rotate(90deg);

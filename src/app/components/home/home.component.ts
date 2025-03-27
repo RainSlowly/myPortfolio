@@ -285,6 +285,7 @@ linkto(element:number):void{
       }else if (element===3 || element===7){
        window.location.href = 'https://github.com/RainSlowly';
       }
+      this.linkAnimationState[element]="expired";
     }, 1000);
   }
 }
@@ -292,11 +293,11 @@ linkto(element:number):void{
 
 
 redirectToYoutube(project:string) {
-  if(project='poke'){
+  if(project==='poke'){
     window.open('https://www.youtube.com/watch?v=z6o8C7Tcws4');
-  }else if(project='bar'){
+  }else if(project==='bar'){
     window.open('https://www.youtube.com/watch?v=kcJ8_EDRfGE_blank');
-  }else if(project='findIt'){
+  }else if(project==='findIt'){
     window.open('https://www.youtube.com/watch?v=kcJ8_EDRfGE_blank');}
   }
 }
