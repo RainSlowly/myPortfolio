@@ -216,10 +216,34 @@
 
   
 
+    <div id="project4" *ngIf="selectedProj===3" [@projectAnimation]="animationStates[3]" >
+      
+      <div class="tape-single" @tapeAnimation></div>
+      <div class="paperF pink" @paperFAnimation>
+          <div class="tape-section" @tapeAnimation></div>
+          <p>metti il video anteprima qui</p>
+          <div class="tape-section"@tapeAnimation></div>
+        </div>
+        <img class="sticker-zwei" src="assets/images/Sticker-zwei.png" @tapeAnimation>
+      <div class="paperlined" @paperlinedAnimation>
+          <fieldset>
+            <h3>Online Chat App - My Hero GDR</h3>
+            <p class="proj-utilized" [innerHTML]="language.proj1Utilized" ></p>
+            <p class="proj-description"[innerHTML]="language.proj5Description"></p>
+          </fieldset>
+        </div>
+      <div class="post-it-container">
+          <div class="paper" @postItAnimation>
+              <div class="pin"@pinAnimation >
+                <div class="shadow"></div>
+                <div class="metal"></div>
+                <div class="bottom-circle"></div>
+              </div>
+              <a href="https://rainslowly.itch.io/find-it-genious">Il link per giocarlo</a>
+            </div>
+      </div>
 
-    <div id="project4">
-
-    </div>
+  </div>
 </section>
 
 <section id="resume">

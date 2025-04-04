@@ -32,10 +32,11 @@ export class HomeComponent implements OnInit {
   linkAnimationState: { [key: number]: string } = { 0: 'initial', 1: 'initial', 2: 'initial', 3: 'initial', 4: 'initial', 5: 'initial' , 6: 'initial' , 7: 'initial' , 8: 'initial'  };
   selectedLink:number=10;
   alternativeState:string='visible';
-  animationStates: { [key: number]: string } = { 0: 'visible', 1: 'visible', 2: 'visible' };
+  animationStates: { [key: number]: string } = { 0: 'visible', 1: 'visible', 2: 'visible',3: 'visible' };
   projectButtons=[ {name:'Find It Game',static:'assets/images/button normal.png', gif :'assets/images/Button.gif'},
     {name:'Poke Game',static:'assets/images/button normal.png', gif :'assets/images/Button.gif'},
-    {name:'Sito Vetrina',static:'assets/images/button normal.png', gif :'assets/images/Button.gif'}
+    {name:'Sito Vetrina',static:'assets/images/button normal.png', gif :'assets/images/Button.gif'},
+    {name:'MyHeroGDR',static:'assets/images/button normal.png', gif :'assets/images/Button.gif'}
   ]
 
   selectedLang:string="ITA";
@@ -48,7 +49,7 @@ aboutListLove1: " ", aboutListLove2: " ", aboutListLove3: " ", aboutListHate: " 
 aboutListHate1: " ", aboutListHate2: " ", aboutListHate3: " ", proj1Utilized: " ",
 proj1Description: " ", proj2Utilized: " ", proj2Description: " ", proj3Title: " ",
 proj3Utilized: " ", proj3Description: " ", proj4Title: " ", proj4Utilized: " ",
-proj4Description: " ", resumeEdu: " ", resumeEdu2: " ", resumeLang: " ",
+proj4Description: " ", proj5Description:"", resumeEdu: " ", resumeEdu2: " ", resumeLang: " ",
 resumeLang2: " ", resumeSkill1: " ", resumeSkill2: " ", resumeSkill3: " ",
 resumeSkill4: " ", resumeSkill5: " ", resumeSkill6: " ", resumeSkill7: " ",
 jobTitle1: " ", jobPlace1: " ",jobTitle2:"",jobPlace2:"",jobTitle3:"",jobPlace3:"",jobTitle4:"",jobPlace4:""};
@@ -57,13 +58,14 @@ selectedPhrase:string="";
 key: keyof typeof this.avatarLanguage = "aboutLocked";
 preAvatarLang:any;
 avatarLanguage={   
-  aboutLocked:"Ciao sono <b>Simone</b>, questo è il mio sito portfolio.<br> Sarò la tua guida qui dentro.<br> Puoi navigare su questa versione o su quella più seria, se preferisci.",
+  aboutLocked:"Ciao sono <b>Simone</b>, questo è il mio sito portfolio.<br> Sarò la tua guida qui dentro.<br> Anche se qualcosa è ancora da terminare.",
   aboutMoving:"E' mio dovere seguirti in questa navigazione. Altrimenti che guida sarei?",
   heroReturn:"Uff! Stavo soffocando là sotto!",
   project1:"La parte più complicata è stata la gestione di ogni singolo livello. Se vuoi, puoi provare il gioco su itch.io. Funziona tutto, fino alla fine… Credo.",
   project2:"Tutti i programmatori, prima o poi, hanno avuto a che fare coi Pokémon. Ammettiamolo dai.",
   project3:"Sapete cosa dovremmo fare? APRIRE UN BAR! Questa era una cit. ad How i Met Your- lascia perdere… Non dovevo distrarti.",
   project4:"Fare un sito per un parente è come correre con le forbici in mano e i lacci slacciati.",
+  project5:"",
   resume1: "In ambienti diversi ho imparato una miriade di cose diverse. So lavorare a contatto con la gente e dietro le quinte, da solo e in gruppo e ho ottime doti comunicative.",
   resume2: "I lavori che ho fatto non c'entrano nulla con la programmazione, lo so. Ma cosa non si fa per campare eh?",
   contacts:"Spero che la mia personalità e le mie capacità ti abbiano almeno incuriosito. Se vuoi sapere di più o vuoi contattarmi, beh… Sai già cosa fare!",
@@ -160,6 +162,9 @@ avatarLanguage={
       }else if(this.selectedProj=== 2 && !this.alternative){
         this.key="project4"
         this.selectedPhrase=this.avatarLanguage[this.key]
+      }else if(this.selectedProj=== 3 ){
+        this.key="project5"
+        this.selectedPhrase=this.avatarLanguage[this.key]
       }
       this.animationService.startSpeaking();
     }  
@@ -225,10 +230,13 @@ getBaloonSource(){
       }else if(id=== 1){
         this.key="project2"
         this.selectedPhrase=this.avatarLanguage[this.key]
-        this.animationService.changeExpression("soffoco");
+        this.animationService.changeExpression("dubbio");
         this.alternative=false;
       }else if(id=== 2){
         this.key="project3"
+        this.selectedPhrase=this.avatarLanguage[this.key]
+      }else if(id=== 3){
+        this.key="project5"
         this.selectedPhrase=this.avatarLanguage[this.key]
       }
     }, 600);
